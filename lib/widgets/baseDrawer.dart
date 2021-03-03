@@ -24,7 +24,8 @@ class BaseDrawer extends StatelessWidget {
             _createDrawerItem(
                 icon: Icons.assignment_outlined,
                 text: 'Pesanan Anda',
-                onTap: () => Navigator.pushNamed(context, '/event')),
+                onTap: () =>
+                    Navigator.pushReplacementNamed(context, Routes.events)),
             Divider(
               color: textDrawer,
             ),
@@ -32,7 +33,7 @@ class BaseDrawer extends StatelessWidget {
                 icon: Icons.menu_book_outlined,
                 text: 'Tambah Menu baru',
                 onTap: () =>
-                    Navigator.pushReplacementNamed(context, Routes.events)),
+                    Navigator.pushReplacementNamed(context, Routes.addMenu)),
             Divider(
               color: textDrawer,
             ),

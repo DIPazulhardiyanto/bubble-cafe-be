@@ -5,7 +5,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = '/home';
+
   HomePage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -27,291 +29,254 @@ class HomePage extends StatelessWidget {
             child: ListView(
           children: <Widget>[
             SizedBox(height: 16.0),
-            FoodListView(),
+            foodList(),
             SizedBox(height: 16.0),
-            SelectTypeSection(),
+            selectTypeSection(context),
             SizedBox(height: 16.0),
-            MenuItemsList(),
+            menuItemList()
           ],
         )));
   }
 }
 
-class FoodListView extends StatelessWidget {
-  const FoodListView({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
+Widget foodList() {
+  return Padding(
       padding: const EdgeInsets.only(left: 8.0),
       child: Container(
         height: 160.0,
         child: ListView(
           scrollDirection: Axis.horizontal,
-          children: <Widget>[ItemCard(), ItemCard(), ItemCard(), ItemCard()],
+          children: <Widget>[itemCard(), itemCard(), itemCard(), itemCard()],
         ),
-      ),
-    );
-  }
+      ));
 }
 
-class ItemCard extends StatelessWidget {
-  const ItemCard({
-    Key key,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
-      child: Container(
-          height: 160.0,
-          width: 300.0,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(meatImage), fit: BoxFit.cover)),
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: 160.0,
-                width: 300.0,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [Colors.black.withOpacity(0.1), Colors.black],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter)),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Spacer(),
-                    Text(
-                      '25% OFF',
-                      style: TextStyle(
-                          color: textYellow,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.0,
-                          letterSpacing: 1.1),
-                    ),
-                    Text(
-                      'ON FIRST 3 ORDER',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          letterSpacing: 1.1),
-                    )
-                  ],
-                ),
-              )
-            ],
-          )),
-    );
-  }
-}
-
-class SelectTypeSection extends StatelessWidget {
-  const SelectTypeSection({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+Widget itemCard() {
+  return Padding(
+    padding: const EdgeInsets.only(right: 8.0),
+    child: Container(
+        height: 160.0,
+        width: 300.0,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(meatImage), fit: BoxFit.cover)),
+        child: Stack(
           children: <Widget>[
-            Expanded(
+            Container(
+              height: 160.0,
+              width: 300.0,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Colors.black.withOpacity(0.1), Colors.black],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter)),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Spacer(),
+                  Text(
+                    '25% OFF',
+                    style: TextStyle(
+                        color: textYellow,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0,
+                        letterSpacing: 1.1),
+                  ),
+                  Text(
+                    'ON FIRST 3 ORDER',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        letterSpacing: 1.1),
+                  )
+                ],
+              ),
+            )
+          ],
+        )),
+  );
+}
+
+Widget selectTypeSection(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    child: SingleChildScrollView(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Expanded(
+            child: new Container(
+              height: 92.0,
+              width: 120.0,
+              color: greenLight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  IconButton(
+                      icon: Icon(FontAwesomeIcons.starHalfAlt),
+                      color: green,
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => EventsPage(),
+                          ))),
+                  SizedBox(
+                    height: 4.0,
+                  ),
+                  Text(
+                    'Special Menu',
+                    style: TextStyle(color: green, fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => EventsPage(),
+                    ));
+              },
               child: new Container(
                 height: 92.0,
                 width: 120.0,
-                color: greenLight,
+                color: redLight,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    IconButton(
-                        icon: Icon(FontAwesomeIcons.starHalfAlt),
-                        color: green,
-                        onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) => EventsPage(),
-                            ))),
+                    Icon(
+                      FontAwesomeIcons.solidClock,
+                      color: red,
+                    ),
                     SizedBox(
                       height: 4.0,
                     ),
                     Text(
-                      'Special Menu',
-                      style:
-                          TextStyle(color: green, fontWeight: FontWeight.w500),
+                      'Book a Table',
+                      style: TextStyle(color: red, fontWeight: FontWeight.w500),
                     )
                   ],
                 ),
-              ),
-            ),
-            GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => EventsPage(),
-                      ));
-                },
-                child: new Container(
-                  height: 92.0,
-                  width: 120.0,
-                  color: redLight,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.solidClock,
-                        color: red,
-                      ),
-                      SizedBox(
-                        height: 4.0,
-                      ),
-                      Text(
-                        'Book a Table',
-                        style:
-                            TextStyle(color: red, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                )),
-            GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => EventsPage(),
-                      ));
-                },
-                child: new Container(
-                  height: 92.0,
-                  width: 120.0,
-                  color: blueLight,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        FontAwesomeIcons.biking,
-                        color: blue,
-                      ),
-                      SizedBox(
-                        height: 4.0,
-                      ),
-                      Text(
-                        'Delivery Order',
-                        style:
-                            TextStyle(color: blue, fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                ))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class MenuItemsList extends StatelessWidget {
-  const MenuItemsList({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Popular Dishes',
-            style: TextStyle(fontSize: 22.0, color: Colors.black54),
-          ),
-          SizedBox(height: 16.0),
-          MenuItem(),
-          MenuItem(),
+              )),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => EventsPage(),
+                    ));
+              },
+              child: new Container(
+                height: 92.0,
+                width: 120.0,
+                color: blueLight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      FontAwesomeIcons.biking,
+                      color: blue,
+                    ),
+                    SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      'Delivery Order',
+                      style:
+                          TextStyle(color: blue, fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+              ))
         ],
       ),
-    );
-  }
+    ),
+  );
 }
 
-class MenuItem extends StatelessWidget {
-  const MenuItem({
-    Key key,
-  }) : super(key: key);
+Widget menuItemList() {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Popular Dishes',
+          style: TextStyle(fontSize: 22.0, color: Colors.black54),
+        ),
+        SizedBox(height: 16.0),
+        menuItem(),
+        menuItem(),
+      ],
+    ),
+  );
+}
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            height: 100.0,
-            width: 100.0,
-            child: Image.network(
-              burgerImage,
-              fit: BoxFit.cover,
-            ),
+Widget menuItem() {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 8.0),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          height: 100.0,
+          width: 100.0,
+          child: Image.network(
+            burgerImage,
+            fit: BoxFit.cover,
           ),
-          SizedBox(
-            width: 16.0,
-          ),
-          Container(
-            child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                        color: iconYellow,
-                        borderRadius: BorderRadius.circular(4.0)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 4.0),
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.star,
-                            size: 15.0,
-                          ),
-                          Text('4.5')
-                        ],
-                      ),
+        ),
+        SizedBox(
+          width: 16.0,
+        ),
+        Container(
+          child: Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                      color: iconYellow,
+                      borderRadius: BorderRadius.circular(4.0)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8.0, vertical: 4.0),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.star,
+                          size: 15.0,
+                        ),
+                        Text('4.5')
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 8.0,
-                  ),
-                  Text(
-                    'Special Chicken Burger',
-                    style: TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  Container(
-                      width: 200.0,
-                      child: Text(
-                        'Chicken, Yogurt, Red chilli, Ginger paste, Carlic paste, ...',
-                        style: TextStyle(color: Colors.grey),
-                      )),
-                ],
-              ),
+                ),
+                SizedBox(
+                  height: 8.0,
+                ),
+                Text(
+                  'Special Chicken Burger',
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+                Container(
+                    width: 200.0,
+                    child: Text(
+                      'Chicken, Yogurt, Red chilli, Ginger paste, Carlic paste, ...',
+                      style: TextStyle(color: Colors.grey),
+                    )),
+              ],
             ),
-          )
-        ],
-      ),
-    );
-  }
+          ),
+        )
+      ],
+    ),
+  );
 }
 
 var headerColor = Colors.white.withOpacity(0.5);

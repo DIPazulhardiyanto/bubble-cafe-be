@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todosapp/module/addMenu/addMenu.dart';
 import 'package:todosapp/module/events/events.dart';
 import 'package:todosapp/module/home/home.dart';
 import 'package:todosapp/routes/routes.dart';
@@ -14,7 +15,8 @@ class TodosApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         Routes.home: (context) => HomePage(),
-        Routes.events: (context) => EventsPage(),
+        Routes.addMenu: (context) => AddMenuPage(),
+        Routes.events: (context) => EventsPage(), //PageExample
       },
     );
   }
