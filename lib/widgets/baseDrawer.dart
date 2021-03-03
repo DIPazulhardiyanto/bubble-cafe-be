@@ -14,6 +14,14 @@ class BaseDrawer extends StatelessWidget {
           children: <Widget>[
             _createHeader(),
             _createDrawerItem(
+                icon: Icons.home_outlined,
+                text: 'Home',
+                onTap: () =>
+                    Navigator.pushReplacementNamed(context, Routes.home)),
+            Divider(
+              color: textDrawer,
+            ),
+            _createDrawerItem(
                 icon: Icons.assignment_outlined,
                 text: 'Pesanan Anda',
                 onTap: () => Navigator.pushNamed(context, '/event')),
