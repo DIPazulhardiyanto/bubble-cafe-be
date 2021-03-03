@@ -51,7 +51,8 @@ class BaseDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(meatImage), fit: BoxFit.cover)),
+                image: AssetImage('./lib/assets/img/logo.jpeg'),
+                fit: BoxFit.cover)),
         child: Stack(children: <Widget>[
           Container(
             height: 170.0,
@@ -69,18 +70,13 @@ class BaseDrawer extends StatelessWidget {
               children: <Widget>[
                 Spacer(),
                 Text(
-                  '25% OFF',
+                  'Bubble Cafe',
                   style: TextStyle(
                       color: textYellow,
                       fontWeight: FontWeight.bold,
                       fontSize: 24.0,
                       letterSpacing: 1.1),
                 ),
-                Text(
-                  'Radja Caffe',
-                  style: TextStyle(
-                      color: Colors.white, fontSize: 16.0, letterSpacing: 1.1),
-                )
               ],
             ),
           )
