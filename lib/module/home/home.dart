@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todosapp/module/events/events.dart';
+import 'package:todosapp/widgets/baseAppBar.dart';
 import 'package:todosapp/widgets/baseDrawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -11,31 +12,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "List Menu",
-            style: TextStyle(
-                color: textDrawer,
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-                letterSpacing: 1),
-          ),
-          iconTheme: IconThemeData(color: textDrawer),
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-        ),
-        drawer: BaseDrawer(),
-        body: Container(
-            child: ListView(
-          children: <Widget>[
-            SizedBox(height: 16.0),
-            foodList(),
-            SizedBox(height: 16.0),
-            selectTypeSection(context),
-            SizedBox(height: 16.0),
-            menuItemList()
-          ],
-        )));
+      // drawer: BaseDrawer(), //If Using Drawer Menu turn ON
+    body: CustomScrollView(
+        slivers: [
+          BaseAppBar('Bubble Cafe'),
+          SliverList(delegate: SliverChildListDelegate(
+            <Widget> [
+              SizedBox(height: 16.0),
+                  foodList(),
+                  SizedBox(height: 16.0),
+                  selectTypeSection(context),
+                  SizedBox(height: 16.0),
+                  menuItemList()
+            ]
+          ))
+        ],
+      ),
+    );
   }
 }
 
@@ -212,6 +205,10 @@ Widget menuItemList() {
         SizedBox(height: 16.0),
         menuItem(),
         menuItem(),
+        menuItem(),
+        menuItem(),
+        menuItem(),
+        menuItem()
       ],
     ),
   );
