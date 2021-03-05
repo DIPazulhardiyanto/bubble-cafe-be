@@ -19,6 +19,7 @@ class ModelMenu {
         priceProduct: map["priceProduct"],
         ratingProduct: map["ratingProduct"]);
   }
+
   Map<String, dynamic> toJson() {
     return {
       "judulProduct": judulProduct,

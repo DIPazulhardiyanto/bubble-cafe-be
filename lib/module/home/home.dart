@@ -3,6 +3,7 @@ import 'package:todosapp/module/events/events.dart';
 import 'package:todosapp/widgets/baseAppBar.dart';
 import 'package:todosapp/widgets/baseDrawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:todosapp/widgets/bottomNav.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeName = '/home';
@@ -13,21 +14,22 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       // drawer: BaseDrawer(), //If Using Drawer Menu turn ON
-    body: CustomScrollView(
+      body: CustomScrollView(
         slivers: [
           BaseAppBar('Bubble Cafe'),
-          SliverList(delegate: SliverChildListDelegate(
-            <Widget> [
-              SizedBox(height: 16.0),
-                  foodList(),
-                  SizedBox(height: 16.0),
-                  selectTypeSection(context),
-                  SizedBox(height: 16.0),
-                  menuItemList()
-            ]
-          ))
+          SliverList(
+              delegate: SliverChildListDelegate(<Widget>[
+            SizedBox(height: 16.0),
+            foodList(),
+            SizedBox(height: 16.0),
+            selectTypeSection(context),
+            SizedBox(height: 16.0),
+            menuItemList()
+          ]))
         ],
       ),
+      bottomNavigationBar: BottomNav(),
+
     );
   }
 }
