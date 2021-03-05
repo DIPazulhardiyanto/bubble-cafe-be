@@ -18,6 +18,7 @@ class _BottomNavState extends State<BottomNav> {
       'Index 0: Home',
       style: optionStyle,
     ),
+
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -25,19 +26,10 @@ class _BottomNavState extends State<BottomNav> {
     Text(
       'Index 2: School',
       style: optionStyle,
-    ),
-    Text(
-      'Index 3: AccesIble',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Users',
-      style: optionStyle,
-    ),
+    )
   ];
 
   void _onItemTapped(int index) {
-    print('ChekonTap : $index');
     setState(() {
       _selectedIndex = index;
     });
@@ -59,7 +51,6 @@ class _BottomNavState extends State<BottomNav> {
           icon: Icon(Icons.school),
           label: 'School',
         ),
-       
       ],
       currentIndex: _selectedIndex,
       selectedItemColor: Colors.amber[800],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todosapp/widgets/baseDrawer.dart';
+import 'package:todosapp/widgets/bottomNav.dart';
 
 class EventsPage extends StatelessWidget {
   static const String routeName = '/events';
@@ -11,6 +12,8 @@ class EventsPage extends StatelessWidget {
           title: Text("Events"),
         ),
         drawer: BaseDrawer(),
-        body: Center(child: Text("Events")));
+        body: Center(child: Text("Events")),
+        bottomNavigationBar: BottomNav()
+    );
   }
 }

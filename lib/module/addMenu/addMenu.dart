@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:todosapp/mixins/validation.dart';
+import 'package:todosapp/widgets/baseAppBar.dart';
 import 'package:todosapp/widgets/baseDrawer.dart';
 
 var textDrawer = Colors.yellow[900];
 
 class AddMenuPage extends StatelessWidget {
   static const String routeName = '/addmenu';
+
   AddMenuPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Add New Menu",
-            style: TextStyle(
-                color: textDrawer,
-                fontWeight: FontWeight.bold,
-                fontSize: 18.0,
-                letterSpacing: 1),
-          ),
-          iconTheme: IconThemeData(color: textDrawer),
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-        ),
-        drawer: BaseDrawer(),
-        body: AddMenuScreen());
+        body: CustomScrollView(slivers: [
+        BaseAppBar('Bubble Cafe'),
+        SliverList(
+            delegate: SliverChildListDelegate(<Widget>[
+          SizedBox(height: 16.0),
+          AddMenuScreen(),
+        ]))
+      ],
+    )
+    );
   }
 }
 
