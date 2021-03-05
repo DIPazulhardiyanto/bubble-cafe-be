@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:todosapp/module/addMenu/addMenu.dart';
+import 'package:todosapp/module/events/events.dart';
 import 'package:todosapp/widgets/baseAppBar.dart';
 
 class PageAdmin extends StatelessWidget {
@@ -8,17 +11,17 @@ class PageAdmin extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
         body: CustomScrollView(
-          slivers: [
-            BaseAppBar('Bubble Cafe'),
-            SliverList(
-                delegate: SliverChildListDelegate(
-                    <Widget>[SizedBox(height: 16.0), menuItemList()]))
-          ],
-        ));
+      slivers: [
+        BaseAppBar('Bubble Cafe'),
+        SliverList(
+            delegate: SliverChildListDelegate(
+                <Widget>[SizedBox(height: 16.0), menuAdmin(context)]))
+      ],
+    ));
   }
 }
 
-Widget menuItemList() {
+Widget menuItemList(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8.0),
     child: Column(
@@ -29,7 +32,51 @@ Widget menuItemList() {
           style: TextStyle(fontSize: 22.0, color: Colors.black54),
         ),
         SizedBox(height: 16.0),
+        menuAdmin(context),
       ],
+    ),
+  );
+}
+
+Widget menuAdmin(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    child: SingleChildScrollView(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => AddMenuPage(),
+                    ));
+              },
+              child: new Container(
+                height: 92.0,
+                width: 120.0,
+                color: blueLight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      FontAwesomeIcons.plusSquare,
+                      color: blue,
+                    ),
+                    SizedBox(
+                      height: 4.0,
+                    ),
+                    Text(
+                      'New Product',
+                      style:
+                          TextStyle(color: blue, fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+              ))
+        ],
+      ),
     ),
   );
 }
