@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todosapp/Service/ApiService.dart';
 import 'package:todosapp/module/addMenu/addMenu.dart';
 import 'package:todosapp/module/events/events.dart';
 import 'package:todosapp/module/home/home.dart';
@@ -10,6 +11,7 @@ void main() => runApp(TodosApp());
 class TodosApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MenuApiProvider().getProductList().then((value) => print("value: $value"));
     return MaterialApp(
       title: 'Caffe App',
       debugShowCheckedModeBanner: false,

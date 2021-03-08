@@ -1,16 +1,22 @@
 import 'package:todosapp/model/menus.dart';
-import 'package:http/http.dart' show Client;
+import 'package:dio/dio.dart';
 
-class ApiService {
-  final String baseUrl = "http://api.bengkelrobot.net:8001";
-  Client client = Client();
 
-  Future<List<ModelMenu>> getProfiles() async {
-    final response = await client.get("$baseUrl/api/profile");
-    if (response.statusCode == 200) {
-      return modelMenuFromJson(response.body);
-    } else {
-      return null;
+class MenuApiProvider{
+  final String _endpoint = "http://192.168.20.232:8000/auth";
+  final Dio _dio = Dio();
+
+  Future<ModelMenu> getProductList() async {
+    // String _EndPointList = "$_endpoint/product";
+    String _productEnd = "$_endpoint/product?page=1&size=5&names=&descending=true";
+    try {
+      Response response = await _dio.get(_productEnd);
+      print("API_RUNNING >>> : $response");
+
+      return ModelMenu.fromJson(response.data);
+    } catch (error, stacktrace) {
+      print("Exception occured: $error stackTrace: $stacktrace");
+      return error;
     }
   }
 }

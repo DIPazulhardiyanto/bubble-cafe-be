@@ -6,11 +6,10 @@ class ModelMenu {
   String ratingProduct;
   String priceProduct;
 
-  ModelMenu(
-      {this.judulProduct,
-      this.deskripsiProduct,
-      this.priceProduct,
-      this.ratingProduct});
+  ModelMenu({this.judulProduct,
+    this.deskripsiProduct,
+    this.priceProduct,
+    this.ratingProduct});
 
   factory ModelMenu.fromJson(Map<String, dynamic> map) {
     return ModelMenu(
