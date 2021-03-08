@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:todosapp/module/addMenu/addMenu.dart';
-import 'package:todosapp/module/events/events.dart';
+import 'package:todosapp/Views/addMenu/addMenu.dart';
+import 'package:todosapp/Views/events/events.dart';
 import 'package:todosapp/widgets/baseAppBar.dart';
 
 class PageAdmin extends StatelessWidget {

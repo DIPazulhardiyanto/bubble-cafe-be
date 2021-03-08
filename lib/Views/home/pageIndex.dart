@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todosapp/module/events/events.dart';
-import 'package:todosapp/module/home/pageBookATable.dart';
-import 'package:todosapp/module/home/pageDeliverOrder.dart';
-import 'package:todosapp/module/home/pageSpecialMenu.dart';
+import 'package:todosapp/Views/home/pageBookATable.dart';
+import 'package:todosapp/Views/home/pageDeliverOrder.dart';
+import 'package:todosapp/Views/home/pageSpecialMenu.dart';
 import 'package:todosapp/widgets/baseAppBar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -113,7 +112,8 @@ Widget selectTypeSection(BuildContext context) {
                       onPressed: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (BuildContext context) => PageSpecialMenu(),
+                            builder: (BuildContext context) =>
+                                PageSpecialMenu(),
                           ))),
                   SizedBox(
                     height: 4.0,
@@ -210,6 +210,56 @@ Widget menuItemList() {
         menuItem()
       ],
     ),
+  );
+}
+
+Widget menuItem2() {
+  return ListView(
+    children: const <Widget>[
+      Card(child: ListTile(title: Text('One-line ListTile'))),
+      Card(
+        child: ListTile(
+          leading: FlutterLogo(),
+          title: Text('One-line with leading widget'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('One-line with trailing widget'),
+          trailing: Icon(Icons.more_vert),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          leading: FlutterLogo(),
+          title: Text('One-line with both widgets'),
+          trailing: Icon(Icons.more_vert),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('One-line dense ListTile'),
+          dense: true,
+        ),
+      ),
+      Card(
+        child: ListTile(
+          leading: FlutterLogo(size: 56.0),
+          title: Text('Two-line ListTile'),
+          subtitle: Text('Here is a second line'),
+          trailing: Icon(Icons.more_vert),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          leading: FlutterLogo(size: 72.0),
+          title: Text('Three-line ListTile'),
+          subtitle: Text('A sufficiently long subtitle warrants three lines.'),
+          trailing: Icon(Icons.more_vert),
+          isThreeLine: true,
+        ),
+      ),
+    ],
   );
 }
 

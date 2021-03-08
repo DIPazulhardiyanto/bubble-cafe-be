@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:todosapp/module/home/pageIndex.dart';
-import 'package:todosapp/module/home/pageSpecialMenu.dart';
+import 'package:todosapp/Views/adminMenu/homeAdmin.dart';
+import 'package:todosapp/Views/home/pageSpecialMenu.dart';
 
-class HomePage extends StatelessWidget {
+class IndexAdmin extends StatelessWidget {
   static const String routeName = '/home';
 
-  HomePage({Key key}) : super(key: key);
+  IndexAdmin({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: Navigator(
         onGenerateRoute: (settings) {
-          Widget page = PageIndex();
+          Widget page = PageAdmin();
           if (settings.name == '2') page = PageSpecialMenu();
           return MaterialPageRoute(builder: (_) => page);
         },
