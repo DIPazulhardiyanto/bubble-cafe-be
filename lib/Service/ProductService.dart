@@ -1,6 +1,6 @@
-import 'package:todosapp/model/product.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
+import '../model/product.dart';
 
 
 class ProductService {
@@ -11,11 +11,12 @@ class ProductService {
     // String _EndPointList = "$_endpoint/product";
     String _productEnd = "$_endpoint/product?page=1&size=5&names=&descending=true";
     try {
-      Response response = await _dio.get(_productEnd);
-      Iterable productList = json.decode(response.body);
-      List<User> products = productList.map((product) =>
-          Product.fromJson(product)).toList();
-      return products
+      final response = await _dio.get(_productEnd);
+      print("Response: $response");
+      // Iterable productList = json.decode(response);
+      // List<Product> products = productList.map((product) =>
+      //     Product.fromJson(product)).toList();
+      // return products;
     } catch (error, stacktrace) {
       print("Exception occured: $error stackTrace: $stacktrace");
       return error;

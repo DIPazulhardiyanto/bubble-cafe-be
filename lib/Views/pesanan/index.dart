@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todosapp/module/home/pageSpecialMenu.dart';
-import 'package:todosapp/module/pesanan/homePesanan.dart';
+
+import '../home/pageSpecialMenu.dart';
+import 'homePesanan.dart';
 
 class PesananPage extends StatelessWidget {
   static const String routeName = '/home';

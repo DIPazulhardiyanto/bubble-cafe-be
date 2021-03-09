@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todosapp/module/adminMenu/index.dart';
-import 'package:todosapp/module/events/events.dart';
-import 'package:todosapp/module/home/home.dart';
-import 'package:todosapp/module/pesanan/index.dart';
+import '../../Views/adminMenu/index.dart';
+import '../../Views/home/home.dart';
+import '../../Views/pesanan/index.dart';
 
 class TabNavigationItem {
   final Widget page;

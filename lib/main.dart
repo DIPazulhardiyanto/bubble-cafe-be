@@ -11,7 +11,7 @@ class TodosApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primaryColor: Colors.blue),
+      theme: ThemeData(primaryColor: Colors.blue[300]),
       title: 'Caffe App',
       initialRoute: '/home',
       debugShowCheckedModeBanner: false,
