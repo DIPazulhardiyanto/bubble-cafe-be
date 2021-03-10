@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:todosapp/Views/home/pageBookATable.dart';
 import 'package:todosapp/Views/home/pageDeliverOrder.dart';
 import 'package:todosapp/Views/home/pageSpecialMenu.dart';
+import 'package:todosapp/Views/home/productList.dart';
+import 'package:todosapp/appInjection/appInjection.dart';
+import 'package:todosapp/bloc/product/productCubit.dart';
 import 'package:todosapp/widgets/baseAppBar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PageIndex extends StatelessWidget {
-  static const String routeName = '/events';
-
-  PageIndex({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,9 @@ class PageIndex extends StatelessWidget {
           SizedBox(height: 16.0),
           selectTypeSection(context),
           SizedBox(height: 16.0),
-          menuItemList()
+          menuItemList(),
+          SizedBox(height: 16.0),
+          ProductListSc()
         ]))
       ],
     ));

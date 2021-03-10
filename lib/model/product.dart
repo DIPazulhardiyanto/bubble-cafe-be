@@ -24,6 +24,6 @@ class Product {
       'deskripsiProduct': deskripsiProduct,
       'priceProduct': priceProduct,
       'ratingProduct': ratingProduct
-    }
+    };
   }
 }

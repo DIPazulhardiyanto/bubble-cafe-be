@@ -1,6 +1,6 @@
-import 'package:todosapp/module/addMenu/addMenu.dart';
-import 'package:todosapp/module/events/events.dart';
-import 'package:todosapp/module/home/home.dart';
+import '../Views/home/home.dart';
+import '../Views/addMenu/addMenu.dart';
+import '../Views/events/events.dart';
 
 class Routes {
   static const String home = HomePage.routeName;

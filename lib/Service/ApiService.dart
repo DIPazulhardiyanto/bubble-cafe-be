@@ -6,7 +6,7 @@ class MenuApiProvider{
   final String _endpoint = "http://192.168.20.232:8000/auth";
   final Dio _dio = Dio();
 
-  Future<ModelMenu> getProductList() async {
+  Future<ModelMenu> getProductListTest() async {
     // String _EndPointList = "$_endpoint/product";
     String _productEnd = "$_endpoint/product?page=1&size=5&names=&descending=true";
     try {
